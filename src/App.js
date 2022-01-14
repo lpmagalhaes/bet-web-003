@@ -20,6 +20,14 @@ import FilledInput from '@mui/material/FilledInput';
 import Paper from '@mui/material/Paper';
 import Avatar from '@mui/material/Avatar';
 import TextField from '@mui/material/TextField';
+import {
+	LineChart,
+	Line,
+	XAxis,
+	YAxis,
+	Label,
+	ResponsiveContainer
+} from "recharts";
 
 function App() {
 	const [category, setCategory] = React.useState(0);
@@ -32,6 +40,22 @@ function App() {
 
 	const title = "What will the floor price of Bored Apes be on January 14, 2022?"
 	const image = 'https://miro.medium.com/max/1200/1*qGqMY0LcqT1xgdz0z9r8EA.png'
+
+	function createData(time, amount) {
+		return { time, amount };
+	}
+
+	const data = [
+		createData("00:00", 0),
+		createData("03:00", 300),
+		createData("06:00", 600),
+		createData("09:00", 800),
+		createData("12:00", 1500),
+		createData("15:00", 2000),
+		createData("18:00", 2400),
+		createData("21:00", 2400),
+		createData("24:00", undefined)
+	];
 
 	return <Box sx={{ flexGrow: 1 }}>
 		<AppBar position="static">
@@ -290,8 +314,35 @@ function App() {
 					<Grid container spacing={2}>
 						<Grid item xs={12} md={8}>
 							<Paper elevation={1} sx={{p: 2, mt: 2,height: '300px'}}>
-								gradicos
-						</Paper>
+								<ResponsiveContainer>
+									<LineChart
+										data={data}
+										margin={{
+											top: 16,
+											right: 16,
+											bottom: 0,
+											left: 24
+										}}
+									>
+										<XAxis dataKey="time" stroke={'green'} />
+										<YAxis stroke={'black'}>
+											<Label
+												angle={270}
+												position="left"
+												style={{ textAnchor: "middle", fill: 'red' }}
+											>
+												Sales ($)
+											</Label>
+										</YAxis>
+										<Line
+											type="monotone"
+											dataKey="amount"
+											stroke={'blue'}
+											dot={false}
+										/>
+									</LineChart>
+								</ResponsiveContainer>
+							</Paper>
 						</Grid>
 						<Grid item xs={12} md={4}>
 							<Paper elevation={1} sx={{p: 2, mt: 2,}}>
