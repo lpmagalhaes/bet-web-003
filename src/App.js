@@ -20,6 +20,10 @@ import FilledInput from '@mui/material/FilledInput';
 import Paper from '@mui/material/Paper';
 import Avatar from '@mui/material/Avatar';
 import TextField from '@mui/material/TextField';
+import Table from '@mui/material/Table';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import TableCell from '@mui/material/TableCell';
 import {
 	LineChart,
 	Line,
@@ -343,6 +347,53 @@ function App() {
 									</LineChart>
 								</ResponsiveContainer>
 							</Paper>
+							<Box sx={{
+								mt: 2,
+								display: 'flex',
+								flexDirection: 'column',
+							}}>
+								<Typography align='center' fontWeight='700'>
+									Market Positions
+								</Typography>
+								<hr style={{width: '90%', color: '#DDDDDD', }}/>
+								<Table sx={{width: 1}}>
+									<TableHead>
+										<TableRow>
+											<TableCell> Outcome </TableCell>
+											<TableCell> PRice: Avg | Cur. </TableCell>
+											<TableCell> P/L: $ | % </TableCell>
+											<TableCell> Value: Init Z| Cur </TableCell>
+											<TableCell> Max Payout </TableCell>
+										</TableRow>
+									</TableHead>
+								</Table>
+								<Typography sx={{mt: 2}}>
+									No Market Positions
+								</Typography>
+								<Typography fontWeight='700' sx={{mt: 2}}>
+									About this market
+								</Typography>
+								<Typography sx={{mt: 2}}>
+									The 2022 United States Senate elections will be held on November 8, 2022, with 34 of the 100 seats in the Senate being contested.
+								</Typography>
+								<Typography sx={{mt: 2}}>
+									This market will resolve to the party which is affiliated with more than half of the voting Senate members after the 2022 Senate elections, or if the Vice President has the same party affiliation, half or more of the voting Senate members. A Senator's party affiliation is determined by whichever party’s caucus he or she is a member of; namely at the time of the writing of this question, Bernie Sanders and Angus King are considered to be affiliated with the Democratic Party.
+								</Typography>
+
+								<Typography sx={{mt: 2}}>
+									Determination of which party controls the Senate after the 2022 U.S. Senate elections will be based on a consensus of credible reporting, or if there is ambiguity, final state election authority certification or other final official determination of the 2022 election results.
+								</Typography>
+								<Box sx={{
+									mt: 2,
+									bgcolor: '#f4f4f4',
+									borderRadius: '.8rem',
+									color: '#aaa',
+									p: '8px 16px',
+									width: 'fit-content',
+								}}>
+									Resolver: Ciclano <a href='#'>View Contract</a>
+								</Box>
+							</Box>
 						</Grid>
 						<Grid item xs={12} md={4}>
 							<Paper elevation={1} sx={{p: 2, mt: 2,}}>
